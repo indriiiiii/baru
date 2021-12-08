@@ -31,6 +31,7 @@ def callback():
     return 'OK'
 
 d = dict(Venezuela = 1, Spain = 2, USA = 3, Italy = 4)
+dp = random.choice(d.keys())
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
@@ -47,7 +48,7 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, message)
         
     if msg_from_user == 'satu':
-        message = TextSendMessage(random.choice(d.keys()))
+        message = TextSendMessage(dp)
         line_bot_api.reply_message(event.reply_token, message)
 
 import os
