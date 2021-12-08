@@ -30,11 +30,10 @@ def callback():
         abort(400)
     return 'OK'
 
-d = dict(Venezuela = 1, Spain = 2, USA = 3, Italy = 4)
-dp = random.choice(d.keys())
-
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
+    d = {'VENEZUELA':'CARACAS', 'CANADA':'OTTAWA'}
+    dc = random.choice(list(d.keys()))
     msg_from_user = event.message.text
     if msg_from_user == 'Tes gambar':
         line_bot_api.reply_message(
@@ -48,7 +47,7 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, message)
         
     if msg_from_user == 'satu':
-        message = TextSendMessage(dp)
+        message = TextSendMessage(dc)
         line_bot_api.reply_message(event.reply_token, message)
 
 import os
