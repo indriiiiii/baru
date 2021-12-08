@@ -30,9 +30,10 @@ def callback():
         abort(400)
     return 'OK'
 
+d = dict(Venezuela = 1, Spain = 2, USA = 3, Italy = 4)
+
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    d = dict(Venezuela = 1, Spain = 2, USA = 3, Italy = 4)
     msg_from_user = event.message.text
     if msg_from_user == 'Tes gambar':
         line_bot_api.reply_message(
