@@ -60,8 +60,6 @@ def handle_message(event):
 
     if msg_from_user == 'Tes':
         tth = random.choice(list(t.keys()))
-        pesan = TextSendMessage(tth + "\n" + "Apakah bisa melakukan tantangan ini? Ketik 'bisa' jika memang bisa dan ketik 'gabisa' jika tidak mampu melakukannya")
-        isi = line_bot_api.reply_message(event.reply_token, pesan)
 
         message = TemplateSendMessage(
             alt_text='Buttons template',
@@ -72,7 +70,7 @@ def handle_message(event):
                 actions=[
                     MessageTemplateAction(
                         label='uri',
-                        text= 'isi'
+                        text= TextSendMessage(tth + "\n" + "Apakah bisa melakukan tantangan ini? Ketik 'bisa' jika memang bisa dan ketik 'gabisa' jika tidak mampu melakukannya")
                     )
                 ]
             )
