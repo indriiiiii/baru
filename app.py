@@ -193,7 +193,7 @@ container_obj = FlexSendMessage.new_from_json_dict(payload)
 def handle_message(event):
     msg_from_user = event.message.text
     if msg_from_user == 'Tes':
-        message = container_obj
+        message =  FlexSendMessage(container_obj)
         line_bot_api.reply_message(event.reply_token, message) 
         
 
