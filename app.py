@@ -69,27 +69,27 @@ def handle_message(event):
                 text='Silahkan pilih',
                 actions=[
                     MessageTemplateAction(
-                    label='1',
+                    label='satu',
                     text=tth
                     ),
 
                     MessageTemplateAction(
-                    label='2',
+                    label='dua',
                     text='ayam'
                     ),
 
                     MessageTemplateAction(
-                    label='3',
+                    label='tiga',
                     text='bebek'
                     ),
 
                     MessageTemplateAction(
-                    label='4',
+                    label='empat',
                     text=tth
                     ),
 
                     MessageTemplateAction(
-                    label='5',
+                    label='lima',
                     text=tth
                     )
                 ]
