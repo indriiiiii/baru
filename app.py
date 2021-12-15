@@ -68,10 +68,9 @@ def handle_message(event):
                 title='Menu',
                 text='Please select',
                 actions=[
-                    PostbackTemplateAction(
-                        label='postback2',
-                        text=tth,
-                        data=tth
+                    MessageTemplateAction(
+                    label='message',
+                    text=tth
                     )
                 ]
             )
