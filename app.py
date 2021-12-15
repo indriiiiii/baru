@@ -65,11 +65,31 @@ def handle_message(event):
             alt_text='Buttons template',
             template=ButtonsTemplate(
                 thumbnail_image_url='https://i.pinimg.com/564x/0d/b8/98/0db89880dfa0595585f33ddb50da89f9.jpg',
-                title='Menu',
-                text='Please select',
+                title='Truth',
+                text='Silahkan pilih',
                 actions=[
                     MessageTemplateAction(
-                    label='message',
+                    label='1',
+                    text=tth
+                    ),
+
+                    MessageTemplateAction(
+                    label='2',
+                    text=tth
+                    ),
+
+                    MessageTemplateAction(
+                    label='3',
+                    text=tth
+                    ),
+
+                    MessageTemplateAction(
+                    label='4',
+                    text=tth
+                    ),
+
+                    MessageTemplateAction(
+                    label='5',
                     text=tth
                     )
                 ]
