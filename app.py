@@ -70,7 +70,7 @@ def handle_message(event):
                 actions=[
                     PostbackTemplateAction(
                         label='postback2',
-                        data='tth'
+                        data=tth
                     )
                 ]
             )
