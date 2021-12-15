@@ -71,6 +71,11 @@ def handle_message(event):
                     MessageTemplateAction(
                     label='satu',
                     text= ('tugas', tth)
+                    ),
+
+					MessageTemplateAction(
+                    label='dua',
+                    text= ('truth nya adalah', tth)
                     )
                 ]
             )
