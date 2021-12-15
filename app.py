@@ -70,7 +70,7 @@ def handle_message(event):
                 actions=[
                     URITemplateAction(
                         label='uri',
-                        uri=pesan
+                        uri= 'pesan'
                     )
                 ]
             )
