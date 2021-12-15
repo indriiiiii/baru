@@ -58,7 +58,7 @@ def handle_message(event):
         'Berapa jumlah mantanmu? sebutkan!':20,
         }
     tth = random.choice(list(t.keys()))
-    pesan = TextSendMessage(tth + "\n" + "Apakah bisa melakukan tantangan ini? Ketik 'bisa' jika memang bisa dan ketik 'gabisa' jika tidak mampu melakukannya"), line_bot_api.reply_message(event.reply_token, tth)
+    pesan = TextSendMessage(tth + "\n" + "Apakah bisa melakukan tantangan ini? Ketik 'bisa' jika memang bisa dan ketik 'gabisa' jika tidak mampu melakukannya")
 
     if msg_from_user == 'Tes':
         message = TemplateSendMessage(
@@ -68,9 +68,9 @@ def handle_message(event):
                 title='Menu',
                 text='Please select',
                 actions=[
-                    URITemplateAction(
+                    MessageTemplateAction(
                         label='uri',
-                        uri= 'pesan'
+                        uri= line_bot_api.reply_message(event.reply_token, pesan)
                     )
                 ]
             )
