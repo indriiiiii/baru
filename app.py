@@ -1,4 +1,3 @@
-from logging import PercentStyle
 import random
 from flask import Flask, request, abort
 from linebot import (
@@ -15,8 +14,8 @@ from linebot.models import (
 
 app = Flask(__name__)
 
-ACCESS_TOKEN = 'lIKFwU/TgvvYQAVMTT0V3L/Q4MJUnjZFb4TdtVb4xeb3YRAVMkRusqyAiIifWjdhFzwiWPT0u8F4B9iB1ILEjXqWEjNEy9xvClCqk8xnFjPVfl1MLFsJ/k6nam1Y94ksJNiLuuU0poOvR905pXJ8JwdB04t89/1O/w1cDnyilFU='
-SECRET = 'f470cac6f78984857d780a3b2a5e90fd'
+ACCESS_TOKEN = 'KlTXiq+PhZwdtrmanTbE7SXwtmmY1EfM+aJzuORy7gcqwPfZyLl4jPiVg/dwlY56YuLfQL4BZZgR8lzdFB0I+Ttbm8ZUWaZP9B9TJSnYgRxgXkYKRnKfzDJBhhQ//rrMYu1y9AUx5rDjR4SXUVrvrQdB04t89/1O/w1cDnyilFU='
+SECRET = 'bb513754344a36ad5cd59a9ccb1c104b'
 
 line_bot_api = LineBotApi(ACCESS_TOKEN)
 handler = WebhookHandler(SECRET)
@@ -72,7 +71,7 @@ def handle_message(event):
                 actions=[
                     URITemplateAction(
                         label='uri',
-                        uri=pesan
+                        uri=line_bot_api.reply_message(event.reply_token, pesan)
                     )
                 ]
             )
