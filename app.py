@@ -71,26 +71,6 @@ def handle_message(event):
                     MessageTemplateAction(
                     label='satu',
                     text=tth
-                    ),
-
-                    MessageTemplateAction(
-                    label='dua',
-                    text='ayam'
-                    ),
-
-                    MessageTemplateAction(
-                    label='tiga',
-                    text='bebek'
-                    ),
-
-                    MessageTemplateAction(
-                    label='empat',
-                    text=tth
-                    ),
-
-                    MessageTemplateAction(
-                    label='lima',
-                    text=tth
                     )
                 ]
             )
