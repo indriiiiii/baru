@@ -70,7 +70,7 @@ def handle_message(event):
                 actions=[
                     MessageTemplateAction(
                         label='uri',
-                        text= 'TextSendMessage(tth + "\n" + "Apakah bisa melakukan tantangan ini?")'
+                        text= tth
                     )
                 ]
             )
