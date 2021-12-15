@@ -1,3 +1,4 @@
+from logging import PercentStyle
 import random
 from flask import Flask, request, abort
 from linebot import (
@@ -71,7 +72,7 @@ def handle_message(event):
                 actions=[
                     URITemplateAction(
                         label='uri',
-                        uri=line_bot_api.reply_message(event.reply_token, pesan)
+                        uri=pesan
                     )
                 ]
             )
