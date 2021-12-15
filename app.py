@@ -44,6 +44,7 @@ def handle_message_aturan(event):
         "\nketik 'dare' untuk memulai games dare")
         line_bot_api.reply_message(event.reply_token, message)
 
+@handler.add(MessageEvent, message=TextMessage)
 def handle_message_truth_dare(event):
     t = {'Kalau kamu bisa jadi tidak terlihat, apa hal pertama yang akan kamu lakukan?':1, 
         'Apa rahasia yang kamu sembunyikan dari orangtuamu?':2,
@@ -99,7 +100,8 @@ def handle_message_truth_dare(event):
     if msg_from_user == 'dare':
         message = TextSendMessage(dare + "\n" + "Apakah bisa melakukan tantangan ini? Ketik 'bisa' jika memang bisa dan ketik 'gabisa' jika tidak mampu melakukannya")
         line_bot_api.reply_message(event.reply_token, message)
-        
+
+@handler.add(MessageEvent, message=TextMessage) 
 def handle_message_stiker(event):
     s = {52002734:1, 
         52002735:2,
@@ -118,7 +120,8 @@ def handle_message_stiker(event):
         StickerSendMessage(
             package_id='11537',
             sticker_id=stiker))
-
+        
+@handler.add(MessageEvent, message=TextMessage)
 def handle_message_hukuman(event):
     g = {'https://i.pinimg.com/564x/d4/d0/4c/d4d04ca608a791e769fcef88c2435d6b.jpg':1, 
         'https://i.pinimg.com/564x/d5/00/4f/d5004fa2ded59ce5285a1eb7b9f00576.jpg':2,
@@ -133,7 +136,6 @@ def handle_message_hukuman(event):
         }
     gambar = random.choice(list(g.keys()))
 
-   
     msg_from_user = event.message.text
     if msg_from_user == 'gabisa':
         line_bot_api.reply_message(
