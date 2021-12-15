@@ -12,8 +12,8 @@ from linebot.models import (
 
 app = Flask(__name__)
 
-ACCESS_TOKEN = 'KlTXiq+PhZwdtrmanTbE7SXwtmmY1EfM+aJzuORy7gcqwPfZyLl4jPiVg/dwlY56YuLfQL4BZZgR8lzdFB0I+Ttbm8ZUWaZP9B9TJSnYgRxgXkYKRnKfzDJBhhQ//rrMYu1y9AUx5rDjR4SXUVrvrQdB04t89/1O/w1cDnyilFU='
-SECRET = 'bb513754344a36ad5cd59a9ccb1c104b'
+ACCESS_TOKEN = 'GUw/Sdi+cGaiCtLq8ZdrYaOMTLk4K1Tc6R0DRiEH/vBqQljRKQ3pJq+oN1sYKNSeSqIPRMJS/H1sBEBIJuxLat77L1VtPgRBnssLOC48ICWaIEk1f9oixGL+aeqgL7mEe6hjk7HUwjSAqjdLBeQA0gdB04t89/1O/w1cDnyilFU='
+SECRET = '923c01d65919b7ae347b0749bde3bb6d'
 
 line_bot_api = LineBotApi(ACCESS_TOKEN)
 handler = WebhookHandler(SECRET)
@@ -43,6 +43,8 @@ def handle_message_aturan(event):
         "\nketik 'truth' untuk memulai games truth" + 
         "\nketik 'dare' untuk memulai games dare")
         line_bot_api.reply_message(event.reply_token, message)
+    
+    handle_message_hukuman(event)
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message_truth_dare(event):
@@ -100,8 +102,8 @@ def handle_message_truth_dare(event):
     if msg_from_user == 'dare':
         message = TextSendMessage(dare + "\n" + "Apakah bisa melakukan tantangan ini? Ketik 'bisa' jika memang bisa dan ketik 'gabisa' jika tidak mampu melakukannya")
         line_bot_api.reply_message(event.reply_token, message)
-
-@handler.add(MessageEvent, message=TextMessage) 
+        
+@handler.add(MessageEvent, message=TextMessage)
 def handle_message_stiker(event):
     s = {52002734:1, 
         52002735:2,
@@ -120,7 +122,7 @@ def handle_message_stiker(event):
         StickerSendMessage(
             package_id='11537',
             sticker_id=stiker))
-        
+
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message_hukuman(event):
     g = {'https://i.pinimg.com/564x/d4/d0/4c/d4d04ca608a791e769fcef88c2435d6b.jpg':1, 
@@ -136,6 +138,7 @@ def handle_message_hukuman(event):
         }
     gambar = random.choice(list(g.keys()))
 
+   
     msg_from_user = event.message.text
     if msg_from_user == 'gabisa':
         line_bot_api.reply_message(
