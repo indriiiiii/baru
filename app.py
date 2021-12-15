@@ -70,27 +70,19 @@ def handle_message(event):
                 actions=[
                     MessageTemplateAction(
                     label='1',
-                    text=tth
-                    ),
-
-                    MessageTemplateAction(
+                    text=tth,
+                    
                     label='2',
-                    text=tth
-                    ),
-
-                    MessageTemplateAction(
+                    text=tth,
+                    
                     label='3',
-                    text=tth
-                    ),
-
-                    MessageTemplateAction(
+                    text=tth,
+                    
                     label='4',
-                    text=tth
-                    ),
-
-                    MessageTemplateAction(
+                    text=tth,
+                    
                     label='5',
-                    text=tth
+                    text=tth,
                     )
                 ]
             )
