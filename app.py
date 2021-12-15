@@ -70,7 +70,7 @@ def handle_message(event):
                 actions=[
                     MessageTemplateAction(
                         label='uri',
-                        text= TextSendMessage(tth + "\n" + "Apakah bisa melakukan tantangan ini? Ketik 'bisa' jika memang bisa dan ketik 'gabisa' jika tidak mampu melakukannya")
+                        text= 'TextSendMessage(tth + "\n" + "Apakah bisa melakukan tantangan ini? Ketik 'bisa' jika memang bisa dan ketik 'gabisa' jika tidak mampu melakukannya")'
                     )
                 ]
             )
