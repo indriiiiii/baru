@@ -57,10 +57,30 @@ def handle_message(event):
         'Apa aib yang kamu sembunyikan dari teman-temanmu?':19,
         'Berapa jumlah mantanmu? sebutkan!':20,
         }
-
     tth = random.choice(list(t.keys()))
 
-    p = random.choice(list(t.keys()))
+    d = {'Lakukan rap gaya bebas selama 3 menit!':1, 
+        'Biarkan orang lain membuat status menggunakan akun sosial mediamu!':2,
+        'Berikan ponselmu kepada salah satu di antara kita dan biarkan orang tersebut mengirim satu pesan kepada siapapun yang dia mau!' :3,
+        'Cium salah satu kaus kaki di antara temanmu!':4,
+        'Makan satu gigitan kulit pisang!':5,
+        'Peragakan salah satu orang di antara kita sampai ada yang bisa menebak siapa orang yang diperagakan!':6,
+        'Nyanyikanlah salah lagu lagu dari Rossa!': 7,
+        'Tirukan seorang selebriti sampai ada yang bisa menebak!':8,
+        'Bertingkahlah seperti Hotman Paris selama 2 menit!':9,
+        'Biarkan satu orang menggambar tato di wajahmu!':10,
+        'Tutuplah mata lalu raba muka salah satu di antara kita sampai kamu bisa menebak siapa orang itu!':11,
+        'Ungkapkan persaanmu kepada gebetanmu!':12,
+        'Push up 20 kali!':13,
+        'Kayang selama satu menit!':15,
+        'Plank selama satu menit!.':16,
+        'Coba teriak “aku sayang kamu” sekarang juga!':16,
+        'Baca dengan lantang pesan yang terakhir kali kamu kirim ke gebetanmu!':17,
+        'Telepon seorang teman dan katakan selamat ulang tahun sambil menyanyikan lagu!':18,
+        'Tunjukkan gerakan dance terbaikmu!':19,
+        'Parodikan adegan di film India kesukaanmu!':20,
+        }
+    dare = random.choice(list(d.keys()))
 
     if msg_from_user == 'Tes':
         message = TemplateSendMessage(
@@ -79,13 +99,13 @@ def handle_message(event):
                 		]
             		),
             		CarouselColumn(
-                		thumbnail_image_url='https://i.pinimg.com/564x/0d/b8/98/0db89880dfa0595585f33ddb50da89f9.jpg',
-                		title='truth',
-                		text='pilih lah',
+                		thumbnail_image_url='https://i.pinimg.com/564x/c0/a1/12/c0a112ab16789fa102738ce42911a59d.jpg',
+                		title='dare',
+                		text='pilihlah',
                 		actions=[
                     	    MessageTemplateAction(
                         	    label='dua',
-                        	    text=p
+                        	    text=dare
                     		),
                 		]
             		)
