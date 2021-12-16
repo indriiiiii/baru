@@ -9,7 +9,7 @@ from linebot.exceptions import (
 from linebot.models import (
     MessageEvent, TextMessage, FlexSendMessage, 
     TemplateSendMessage, ConfirmTemplate, PostbackTemplateAction, MessageTemplateAction,
-    ButtonsTemplate, URITemplateAction, TextSendMessage, CarouselTemplate, CarouselColumn
+    ButtonsTemplate, URITemplateAction, TextSendMessage, CarouselTemplate, CarouselColumn, ImageSendMessage, StickerSendMessage
 )
 
 app = Flask(__name__)
@@ -96,7 +96,17 @@ def handle_message(event):
         }
     gambar = random.choice(list(g.keys()))
 
-    if msg_from_user == 'Tes':
+    s = {52002734:1, 
+        52002735:2,
+        52002736:3,
+        52002737:4,
+        52002738:5,
+        52002740:6,
+        52002748:7,
+        52002745:8}
+    stiker = random.choice(list(s.keys()))
+
+    if msg_from_user == 'mulai':
         message = TemplateSendMessage(
     		alt_text='Carousel template',
     		template=CarouselTemplate(
@@ -124,6 +134,17 @@ def handle_message(event):
                 		]
             		),
                     CarouselColumn(
+                		thumbnail_image_url='https://i.pinimg.com/564x/7d/c8/e5/7dc8e50f47a0ac39a163abe6ecc511a6.jpg',
+                		title='bisa menjawab?',
+                		text='pilihlah',
+                		actions=[
+                    	    MessageTemplateAction(
+                        	    label='klik di sini',
+                        	    text='coba ceritain jika kamu memilih truth atau peragarakan langsung/videokan jika kamu memilih dare'
+                    		),
+                		]
+            		),
+                    CarouselColumn(
                 		thumbnail_image_url='https://i.pinimg.com/564x/a9/f0/40/a9f04016535daa98f06593117fb06e20.jpg',
                			title='Hukuman',
                 		text='Pilihlah ini jika kalian tidak bisa menjawab',
@@ -133,13 +154,37 @@ def handle_message(event):
                         	    text= 'hukuman'
                     		),
                 		]
+            		),
+                    CarouselColumn(
+                		thumbnail_image_url='https://i.pinimg.com/564x/d4/3e/11/d43e11239ccdabad5e75277d2d489882.jpg',
+               			title='Ingin Lanjut?',
+                		text='',
+                		actions=[
+                    	    MessageTemplateAction(
+                        	    label='klik',
+                        	    text= ('Ketik "berhenti" untuk menghentikan permainan' +'\n' + 'ketik "mulai" untuk melanjutkan permainan')
+                    		),
+                		]
             		)
         		]
     		)
 		)
         line_bot_api.reply_message(event.reply_token, message)
 
-        
+    if msg_from_user == 'hukuman':
+        image_message = ImageSendMessage(
+            original_content_url=gambar,
+            preview_image_url='https://i.pinimg.com/564x/40/1e/cf/401ecf89c1d2cbac56d26cc95c3f9fb2.jpg'
+        )
+        line_bot_api.reply_message(event.reply_token, image_message)
+    
+    if msg_from_user == 'selesai':
+        sticker_message = StickerSendMessage(
+            package_id='11537',
+            sticker_id=stiker)
+        line_bot_api.reply_message(event.reply_token, sticker_message)
+
+
 import os
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
