@@ -158,11 +158,11 @@ def handle_message(event):
                     CarouselColumn(
                 		thumbnail_image_url='https://i.pinimg.com/564x/d4/3e/11/d43e11239ccdabad5e75277d2d489882.jpg',
                			title='Ingin Lanjut?',
-                		text='',
+                		text='hai',
                 		actions=[
                     	    MessageTemplateAction(
                         	    label='klik',
-                        	    text= ('Ketik "berhenti" untuk menghentikan permainan' +'\n' + 'ketik "mulai" untuk melanjutkan permainan')
+                        	    text= 'Ketik "berhenti" untuk menghentikan permainan dan ketik "mulai" untuk melanjutkan permainan'
                     		),
                 		]
             		)
