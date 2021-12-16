@@ -131,7 +131,7 @@ def handle_message(event):
                 		actions=[
                     	    MessageTemplateAction(
                         	    label='klik untuk melihat hukuman',
-                        	    text= gambar
+                        	    text= 'hukuman'
                     		),
                 		]
             		),
