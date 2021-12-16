@@ -130,12 +130,11 @@ def handle_message(event):
                 		text='Pilihlah ini jika kalian tidak bisa menjawab',
                 		actions=[
                     	    MessageTemplateAction(
-                        	    label='klik untuk melihat hukuman',
+                        	    label='klik',
                         	    text= 'hukuman'
                     		),
                 		]
-            		),
-
+            		)
         		]
     		)
 		)
