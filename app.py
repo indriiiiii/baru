@@ -60,6 +60,8 @@ def handle_message(event):
 
     tth = random.choice(list(t.keys()))
 
+    p = random.choice(list(t.keys()))
+
     if msg_from_user == 'Tes':
         message = TemplateSendMessage(
     		alt_text='Carousel template',
@@ -83,7 +85,7 @@ def handle_message(event):
                 		actions=[
                     	    MessageTemplateAction(
                         	    label='dua',
-                        	    text=tth
+                        	    text=p
                     		),
                 		]
             		)
