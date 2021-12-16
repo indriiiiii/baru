@@ -109,38 +109,23 @@ def handle_message(event):
 
     if msg_from_user == 'mulai':
         message = TemplateSendMessage(
-    		alt_text='Carousel template',
-    		template=CarouselTemplate(
-        		columns=[
-            		CarouselColumn(
-                		thumbnail_image_url='https://i.pinimg.com/564x/0d/b8/98/0db89880dfa0595585f33ddb50da89f9.jpg',
-               			title='Menu',
-                		text='Silahkan pilih',
-                		actions=[
-                            URITemplateAction(
-                                label='Video tutorial games',
-                                uri='https://youtu.be/4iP4PEncYDY'
-                            ),
-                    	    MessageTemplateAction(
-                        	    label='Mulai truth or dare',
-                        	    text= 'start'
-                    		),
-                		]
-            		),
-            		CarouselColumn(
-                		thumbnail_image_url='https://i.pinimg.com/564x/c0/a1/12/c0a112ab16789fa102738ce42911a59d.jpg',
-                		title='Informasi tambahan',
-                		text='Klik tombol dibawah ini jika Ingin berhenti bermain games, atau melanjutkan games ke pemain lain?',
-                		actions=[
-                    	    MessageTemplateAction(
-                        	    label='klik di sini',
-                        	    text='pilihan'
-                    		)
-                		]
-            		)
-        		]
-    		)
-		)
+            alt_text='Buttons template',
+            template=ButtonsTemplate(
+                thumbnail_image_url='https://i.pinimg.com/564x/0d/b8/98/0db89880dfa0595585f33ddb50da89f9.jpg',
+                title='Menu',
+                text='Untuk informasi tambahan, ketik "pilihan" untuk memilih apakah ingin lanjut bermain atau berhenti',
+                actions=[
+                    URITemplateAction(
+                        label='Video tutorial games',
+                        uri='https://youtu.be/4iP4PEncYDY'
+                    ),
+                    MessageTemplateAction(
+                        label='Mulai truth or dare',
+                        text='start'
+                    )
+                ]
+            )
+        )
         line_bot_api.reply_message(event.reply_token, message)
 
 
