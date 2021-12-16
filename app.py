@@ -82,6 +82,20 @@ def handle_message(event):
         }
     dare = random.choice(list(d.keys()))
 
+    
+    g = {'https://i.pinimg.com/564x/d4/d0/4c/d4d04ca608a791e769fcef88c2435d6b.jpg':1, 
+        'https://i.pinimg.com/564x/d5/00/4f/d5004fa2ded59ce5285a1eb7b9f00576.jpg':2,
+        'https://i.pinimg.com/564x/53/ac/45/53ac458033d5f840800df3cd0b2ff55e.jpg' :3,
+        'https://i.pinimg.com/564x/e4/4d/2b/e44d2b46ace72839f413ecd2505acd3d.jpg':4,
+        'https://i.pinimg.com/564x/1e/13/53/1e13536611cda462baa82113f9cadb3c.jpg':5,
+        'https://i.pinimg.com/564x/9a/b7/6a/9ab76a96e274ebf97a1b74e53ae99a70.jpg':6,
+        'https://i.pinimg.com/564x/76/10/1a/76101ab14bace1803bb37988c825e42a.jpg':7,
+        'https://i.pinimg.com/564x/fe/61/5c/fe615cf92a1c99bfce7302adc44f4379.jpg':8,
+        'https://i.pinimg.com/564x/d4/b7/3f/d4b73f7c2c470b02f1f1c3417fe616f7.jpg':9,
+        'https://i.pinimg.com/564x/80/b6/c8/80b6c83d13ad4401ae92add70c393324.jpg':10,
+        }
+    gambar = random.choice(list(g.keys()))
+
     if msg_from_user == 'Tes':
         message = TemplateSendMessage(
     		alt_text='Carousel template',
@@ -108,7 +122,20 @@ def handle_message(event):
                         	    text=dare
                     		),
                 		]
-            		)
+            		),
+
+                    CarouselColumn(
+                		thumbnail_image_url='https://i.pinimg.com/564x/a9/f0/40/a9f04016535daa98f06593117fb06e20.jpg',
+               			title='Hukuman',
+                		text='Pilihlah ini jika kalian tidak bisa menjawab',
+                		actions=[
+                    	    MessageTemplateAction(
+                        	    label='klik untuk melihat hukuman',
+                        	    text= gambar
+                    		),
+                		]
+            		),
+
         		]
     		)
 		)
