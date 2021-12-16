@@ -109,23 +109,21 @@ def handle_message(event):
 
     if msg_from_user == 'mulai':
         message = TemplateSendMessage(
-            alt_text='Buttons template',
-            template=ButtonsTemplate(
-                thumbnail_image_url='https://i.pinimg.com/564x/0d/b8/98/0db89880dfa0595585f33ddb50da89f9.jpg',
-                title='Menu',
-                text='Untuk informasi tambahan, ketik "pilihan" untuk memilih apakah ingin lanjut bermain atau berhenti',
+            alt_text='Confirm template',
+            template=ConfirmTemplate(
+                text='Selamat datang di Line Chatbot games truth or dare',
                 actions=[
-                    URITemplateAction(
-                        label='Video tutorial games',
-                        uri='https://youtu.be/4iP4PEncYDY'
+                    MessageTemplateAction(
+                        label='Aturan cara bermain',
+                        text='aturan'
                     ),
                     MessageTemplateAction(
-                        label='Mulai truth or dare',
+                        label='Mulai gamesnya',
                         text='start'
                     )
                 ]
             )
-        )
+        )   
         line_bot_api.reply_message(event.reply_token, message)
 
 
@@ -152,7 +150,7 @@ def handle_message(event):
         message = TemplateSendMessage(
             alt_text='Confirm template',
             template=ConfirmTemplate(
-                text='Mau pilih apa?',
+                text='Mau lanjut?',
                 actions=[
                     MessageTemplateAction(
                         label='berhenti',
@@ -167,7 +165,6 @@ def handle_message(event):
         )   
         line_bot_api.reply_message(event.reply_token, message)
 
-    
 
     if msg_from_user == 't':
         message = TextSendMessage(tth + "\n" + "Apakah bisa menjawabnya? Ketik 'bisa' jika memang bisa dan ketik 'gabisa' jika tidak mampu melakukannya")
@@ -185,6 +182,13 @@ def handle_message(event):
         image_message = ImageSendMessage(
             original_content_url=gambar,
             preview_image_url='https://i.pinimg.com/564x/40/1e/cf/401ecf89c1d2cbac56d26cc95c3f9fb2.jpg'
+        )
+        line_bot_api.reply_message(event.reply_token, image_message)
+
+    if msg_from_user == 'aturan':
+        image_message = ImageSendMessage(
+            original_content_url='https://i.pinimg.com/564x/a2/cd/eb/a2cdeb2f9f29dd0f2717f0a3d04ddecc.jpg',
+            preview_image_url='https://i.pinimg.com/564x/a2/cd/eb/a2cdeb2f9f29dd0f2717f0a3d04ddecc.jpg'
         )
         line_bot_api.reply_message(event.reply_token, image_message)
     
