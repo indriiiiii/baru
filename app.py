@@ -106,6 +106,10 @@ def handle_message(event):
         52002748:7,
         52002745:8}
     stiker = random.choice(list(s.keys()))
+    
+    if msg_from_user == 'ohsufnh':
+        message = TextSendMessage(tth + "\n" + "Apakah bisa menjawabnya? Ketik 'bisa' jika memang bisa dan ketik 'gabisa' jika tidak mampu melakukannya")
+        line_bot_api.reply_message(event.reply_token, message)
 
     if msg_from_user == 'mulai':
         message = TemplateSendMessage(
