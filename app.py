@@ -123,7 +123,6 @@ def handle_message(event):
                     		),
                 		]
             		),
-
                     CarouselColumn(
                 		thumbnail_image_url='https://i.pinimg.com/564x/a9/f0/40/a9f04016535daa98f06593117fb06e20.jpg',
                			title='Hukuman',
