@@ -9,7 +9,7 @@ from linebot.exceptions import (
 from linebot.models import (
     MessageEvent, TextMessage, FlexSendMessage, 
     TemplateSendMessage, ConfirmTemplate, PostbackTemplateAction, MessageTemplateAction,
-    ButtonsTemplate, URITemplateAction, TextSendMessage
+    ButtonsTemplate, URITemplateAction, TextSendMessage, CarouselTemplate, CarouselColumn
 )
 
 app = Flask(__name__)
@@ -62,20 +62,36 @@ def handle_message(event):
 
     if msg_from_user == 'Tes':
         message = TemplateSendMessage(
-            alt_text='Buttons template',
-            template=ButtonsTemplate(
-                thumbnail_image_url='https://i.pinimg.com/564x/0d/b8/98/0db89880dfa0595585f33ddb50da89f9.jpg',
-                title='Truth',
-                text='Silahkan pilih',
-                actions=[
-                    MessageTemplateAction(
-                    label='satu',
-                    text= ('tugas', tth)
-                    )
-                ]
-            )
-        )
+    		alt_text='Carousel template',
+    		template=CarouselTemplate(
+        		columns=[
+            		CarouselColumn(
+                		thumbnail_image_url='https://i.pinimg.com/564x/0d/b8/98/0db89880dfa0595585f33ddb50da89f9.jpg',
+               			title='truth',
+                		text='Pilihlah',
+                		actions=[
+                    	    MessageTemplateAction(
+                        	    label='satu',
+                        	    text= tth
+                    		),
+                		]
+            		),
+            		CarouselColumn(
+                		thumbnail_image_url='https://i.pinimg.com/564x/0d/b8/98/0db89880dfa0595585f33ddb50da89f9.jpg',
+                		title='truth',
+                		text='pilih lah',
+                		actions=[
+                    	    MessageTemplateAction(
+                        	    label='dua',
+                        	    text=tth
+                    		),
+                		]
+            		)
+        		]
+    		)
+		)
         line_bot_api.reply_message(event.reply_token, message)
+
         
 import os
 if __name__ == "__main__":
