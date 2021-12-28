@@ -7,10 +7,8 @@ from linebot.exceptions import (
     InvalidSignatureError
 )
 from linebot.models import (
-    MessageEvent, TextMessage, FlexSendMessage, 
-    TemplateSendMessage, ConfirmTemplate, PostbackTemplateAction, MessageTemplateAction,
-    ButtonsTemplate, URITemplateAction, TextSendMessage, CarouselTemplate, CarouselColumn, ImageSendMessage, StickerSendMessage,
-    ImageCarouselTemplate, ImageCarouselColumn
+    MessageEvent, TextMessage, 
+    TemplateSendMessage, ConfirmTemplate, MessageTemplateAction, TextSendMessage, ImageSendMessage, StickerSendMessage
 )
 
 app = Flask(__name__)
@@ -165,13 +163,13 @@ def handle_message(event):
         )   
         line_bot_api.reply_message(event.reply_token, message)
 
-
-     if msg_from_user == 'hayuk':
+    if msg_from_user == 'hayuk':
         message = TextSendMessage("Ketik 'desktop' jika kalian ingin memainkan games ini via laptop/pc dan ketik 'mulai' jika anda memainkan games ini di handphone ")
         line_bot_api.reply_message(event.reply_token, message)
         
+
     if msg_from_user == 'desktop':
-        message = TextSendMessage("Klik link ini "+ "\n" + "https://terakhirkali.herokuapp.com/line")
+        message = TextSendMessage("Klik link ini untuk memulai permainan"+ "\n" + "https://terakhirkali.herokuapp.com/line")
         line_bot_api.reply_message(event.reply_token, message)
         
     if msg_from_user == 't':
