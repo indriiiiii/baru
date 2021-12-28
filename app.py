@@ -180,7 +180,7 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, message)
 
     if msg_from_user == 'bisa':
-        message = TextSendMessage("coba ceritakan jawabanmu jika kamu memilih truth atau peragarakan langsung/videokan jika kamu memilih dare"+"\n"+"\n"+ "Ketik 'mulai' jika ingin melanjutkan ke pemain lain dan ketik 'berhenti' jika ingin menghentikan permainan")
+        message = TextSendMessage("coba ceritakan jawabanmu jika kamu memilih truth atau peragarakan langsung/videokan jika kamu memilih dare"+"\n"+"\n"+"Jika sudah menjawab atau melakukan tantangan seperti yang diperintahkan, ketikkan 'selesai' untuk memilih apakah lanjut atau berhenti bermain")
         line_bot_api.reply_message(event.reply_token, message)
 
     if msg_from_user == 'gabisa':
