@@ -166,6 +166,14 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, message)
 
 
+     if msg_from_user == 'hayuk':
+        message = TextSendMessage("Ketik 'desktop' jika kalian ingin memainkan games ini via laptop/pc dan ketik 'mulai' jika anda memainkan games ini di handphone ")
+        line_bot_api.reply_message(event.reply_token, message)
+        
+    if msg_from_user == 'desktop':
+        message = TextSendMessage("Klik link ini "+ "\n" + "https://terakhirkali.herokuapp.com/line")
+        line_bot_api.reply_message(event.reply_token, message)
+        
     if msg_from_user == 't':
         message = TextSendMessage(tth + "\n" + "Apakah bisa menjawabnya? Ketik 'bisa' jika memang bisa dan ketik 'gabisa' jika tidak mampu melakukannya")
         line_bot_api.reply_message(event.reply_token, message)
