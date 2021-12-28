@@ -31,11 +31,7 @@ def callback():
         abort(400)
     return 'OK'
 
-
-@handler.add(MessageEvent, message=TextMessage)
-def handle_message(event):
-    msg_from_user = event.message.text
-    t = {'Kalau kamu bisa jadi tidak terlihat, apa hal pertama yang akan kamu lakukan?':1, 
+t = {'Kalau kamu bisa jadi tidak terlihat, apa hal pertama yang akan kamu lakukan?':1, 
         'Apa rahasia yang kamu sembunyikan dari orangtuamu?':2,
         'Siapa orang yang diam-diam kamu sukai?' :3,
         'Siapa orang terakhir yang kamu kepoin di media sosial?':4,
@@ -56,9 +52,9 @@ def handle_message(event):
         'Apa aib yang kamu sembunyikan dari teman-temanmu?':19,
         'Berapa jumlah mantanmu? sebutkan!':20,
         }
-    tth = random.choice(list(t.keys()))
+tth = random.choice(list(t.keys()))
 
-    d = {'Lakukan rap gaya bebas selama 3 menit!':1, 
+d = {'Lakukan rap gaya bebas selama 3 menit!':1, 
         'Biarkan orang lain membuat status menggunakan akun sosial mediamu!':2,
         'Berikan ponselmu kepada salah satu di antara kita dan biarkan orang tersebut mengirim satu pesan kepada siapapun yang dia mau!' :3,
         'Cium salah satu kaus kaki di antara temanmu!':4,
@@ -79,10 +75,10 @@ def handle_message(event):
         'Tunjukkan gerakan dance terbaikmu!':19,
         'Parodikan adegan di film India kesukaanmu!':20,
         }
-    dare = random.choice(list(d.keys()))
+dare = random.choice(list(d.keys()))
 
     
-    g = {'https://i.pinimg.com/564x/d4/d0/4c/d4d04ca608a791e769fcef88c2435d6b.jpg':1, 
+g = {'https://i.pinimg.com/564x/d4/d0/4c/d4d04ca608a791e769fcef88c2435d6b.jpg':1, 
         'https://i.pinimg.com/564x/d5/00/4f/d5004fa2ded59ce5285a1eb7b9f00576.jpg':2,
         'https://i.pinimg.com/564x/53/ac/45/53ac458033d5f840800df3cd0b2ff55e.jpg' :3,
         'https://i.pinimg.com/564x/e4/4d/2b/e44d2b46ace72839f413ecd2505acd3d.jpg':4,
@@ -93,9 +89,9 @@ def handle_message(event):
         'https://i.pinimg.com/564x/d4/b7/3f/d4b73f7c2c470b02f1f1c3417fe616f7.jpg':9,
         'https://i.pinimg.com/564x/80/b6/c8/80b6c83d13ad4401ae92add70c393324.jpg':10,
         }
-    gambar = random.choice(list(g.keys()))
+gambar = random.choice(list(g.keys()))
 
-    s = {52002734:1, 
+s = {52002734:1, 
         52002735:2,
         52002736:3,
         52002737:4,
@@ -103,7 +99,11 @@ def handle_message(event):
         52002740:6,
         52002748:7,
         52002745:8}
-    stiker = random.choice(list(s.keys()))
+stiker = random.choice(list(s.keys()))
+
+@handler.add(MessageEvent, message=TextMessage)
+def handle_message(event):
+    msg_from_user = event.message.text
 
     if msg_from_user == 'mulai':
         message = TemplateSendMessage(
@@ -202,8 +202,3 @@ def handle_message(event):
             package_id='11537',
             sticker_id=stiker)
         line_bot_api.reply_message(event.reply_token, sticker_message)
-
-import os
-if __name__ == "__main__":
-    port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port)
