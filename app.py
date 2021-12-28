@@ -166,22 +166,21 @@ def handle_message(event):
     if msg_from_user == 'hayuk':
         message = TextSendMessage("Ketik 'desktop' jika kalian ingin memainkan games ini via laptop/pc dan ketik 'mulai' jika anda memainkan games ini di handphone ")
         line_bot_api.reply_message(event.reply_token, message)
-        
 
     if msg_from_user == 'desktop':
         message = TextSendMessage("Klik link ini untuk memulai permainan"+ "\n" + "https://terakhirkali.herokuapp.com/line")
         line_bot_api.reply_message(event.reply_token, message)
         
     if msg_from_user == 't':
-        message = TextSendMessage(tth + "\n" + "Apakah bisa menjawabnya? Ketik 'bisa' jika memang bisa dan ketik 'gabisa' jika tidak mampu melakukannya")
+        message = TextSendMessage(tth + "\n" + "Apakah bisa menjawabnya? Ketik 'bisa' jika mampu menjawab dan ketik 'gabisa' jika tidak mampu melakukannya")
         line_bot_api.reply_message(event.reply_token, message)
 
     if msg_from_user == 'd':
-        message = TextSendMessage(dare + "\n" + "Apakah bisa melakukan tantangan ini? Ketik 'bisa' jika memang bisa dan ketik 'gabisa' jika tidak mampu melakukannya")
+        message = TextSendMessage(dare + "\n" + "Apakah bisa melakukan tantangan ini? Ketik 'bisa' jika mampu melakukan tantangan dan ketik 'gabisa' jika tidak mampu melakukannya")
         line_bot_api.reply_message(event.reply_token, message)
 
     if msg_from_user == 'bisa':
-        message = TextSendMessage("coba ceritakan jawabanmu jika kamu memilih truth atau peragarakan langsung/videokan jika kamu memilih dare")
+        message = TextSendMessage("coba ceritakan jawabanmu jika kamu memilih truth atau peragarakan langsung/videokan jika kamu memilih dare"+"\n"+"\n"+ "Ketik 'mulai' jika ingin melanjutkan ke pemain lain dan ketik 'berhenti' jika ingin menghentikan permainan")
         line_bot_api.reply_message(event.reply_token, message)
 
     if msg_from_user == 'gabisa':
