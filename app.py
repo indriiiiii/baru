@@ -187,7 +187,9 @@ def handle_message(event):
     if msg_from_user == 'gabisa':
         image_message = ImageSendMessage(
             original_content_url=gambar,
-            preview_image_url='https://i.pinimg.com/564x/40/1e/cf/401ecf89c1d2cbac56d26cc95c3f9fb2.jpg')
+            preview_image_url='https://i.pinimg.com/564x/40/1e/cf/401ecf89c1d2cbac56d26cc95c3f9fb2.jpg'
+            )
+        line_bot_api.reply_message(event.reply_token, image_message) 
 
         message=TemplateSendMessage(
             alt_text='Confirm template',
@@ -205,7 +207,7 @@ def handle_message(event):
                 ]
             )
         )
-        line_bot_api.reply_message(event.reply_token, image_message + message) 
+        line_bot_api.reply_message(event.reply_token, message) 
     
     if msg_from_user == 'aturan':
         image_message = ImageSendMessage(
