@@ -205,7 +205,7 @@ def handle_message(event):
                 ]
             )
         )
-        line_bot_api.reply_message(event.reply_token, image_message, message) 
+        line_bot_api.reply_message(event.reply_token, image_message + message) 
     
     if msg_from_user == 'aturan':
         image_message = ImageSendMessage(
