@@ -194,8 +194,8 @@ def handle_message(event):
 
     if msg_from_user == 'aturan':
         image_message = ImageSendMessage(
-            original_content_url='https://i.pinimg.com/564x/a2/cd/eb/a2cdeb2f9f29dd0f2717f0a3d04ddecc.jpg',
-            preview_image_url='https://i.pinimg.com/564x/a2/cd/eb/a2cdeb2f9f29dd0f2717f0a3d04ddecc.jpg'
+            original_content_url='https://i.pinimg.com/564x/53/25/ea/5325eab320dc87fcc72754708983abd4.jpg',
+            preview_image_url='https://i.pinimg.com/564x/53/25/ea/5325eab320dc87fcc72754708983abd4.jpg'
         )
         line_bot_api.reply_message(event.reply_token, image_message)
     
