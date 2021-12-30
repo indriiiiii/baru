@@ -191,25 +191,7 @@ def handle_message(event):
             )
         line_bot_api.reply_message(event.reply_token, image_message) 
 
-    if msg_from_user == 'gabisa' or 'gamau':
-        message=TemplateSendMessage(
-            alt_text='Confirm template',
-            template=ConfirmTemplate(
-                text= "Apakah ingin lanjut?",
-                actions=[
-                    MessageTemplateAction(
-                        label='Lanjut',
-                        text='mulai'
-                    ),
-                    MessageTemplateAction(
-                        label='Berhenti',
-                        text='berhenti'
-                    )
-                ]
-            )
-        )
-        line_bot_api.reply_message(event.reply_token, message) 
-    
+
     if msg_from_user == 'aturan':
         image_message = ImageSendMessage(
             original_content_url='https://i.pinimg.com/564x/a2/cd/eb/a2cdeb2f9f29dd0f2717f0a3d04ddecc.jpg',
