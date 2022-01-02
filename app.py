@@ -11,15 +11,11 @@ from linebot.models import (
     TemplateSendMessage, ConfirmTemplate, MessageTemplateAction,
     TextSendMessage, ImageSendMessage, StickerSendMessage,
 )
-
 app = Flask(__name__)
-
 ACCESS_TOKEN = 'KlTXiq+PhZwdtrmanTbE7SXwtmmY1EfM+aJzuORy7gcqwPfZyLl4jPiVg/dwlY56YuLfQL4BZZgR8lzdFB0I+Ttbm8ZUWaZP9B9TJSnYgRxgXkYKRnKfzDJBhhQ//rrMYu1y9AUx5rDjR4SXUVrvrQdB04t89/1O/w1cDnyilFU='
 SECRET = 'bb513754344a36ad5cd59a9ccb1c104b'
-
 line_bot_api = LineBotApi(ACCESS_TOKEN)
 handler = WebhookHandler(SECRET)
-
 @app.route("/callback", methods=['POST'])
 def callback():
     signature = request.headers['X-Line-Signature']
@@ -78,7 +74,6 @@ d = ['Lakukan rap gaya bebas selama 3 menit!',
     ]
 dare = random.choice(d)
 
-    
 g = ['https://i.pinimg.com/564x/d4/d0/4c/d4d04ca608a791e769fcef88c2435d6b.jpg', 
         'https://i.pinimg.com/564x/d5/00/4f/d5004fa2ded59ce5285a1eb7b9f00576.jpg',
         'https://i.pinimg.com/564x/53/ac/45/53ac458033d5f840800df3cd0b2ff55e.jpg',
@@ -102,11 +97,9 @@ s = [52002734,
         52002745]
 stiker = random.choice(s)
 
-
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     msg_from_user = event.message.text
-
     if msg_from_user == 'mulai':
         message = TemplateSendMessage(
             alt_text='Confirm template',
@@ -125,47 +118,24 @@ def handle_message(event):
             )
         )   
         line_bot_api.reply_message(event.reply_token, message)
-        return 0
-
+        
     elif msg_from_user == 't':
         message = TemplateSendMessage(
             alt_text='Confirm template',
             template=ConfirmTemplate(
-                text= tth + "\n" + "\n"+ "Apakah bisa menjawabnya?",
-                actions=[
-                    MessageTemplateAction(
-                        label='Bisa',
-                        text='bisa'
-                    ),
-                    MessageTemplateAction(
-                        label='Gabisa',
-                        text='gabisa'
-                    )
-                ]
+                text= tth + "\n" + "\n"+ "Apakah bisa menjawabnya?"
             )
         )   
         line_bot_api.reply_message(event.reply_token, message)
-        return 0
 
     elif msg_from_user == 'd':
         message = TemplateSendMessage(
             alt_text='Confirm template',
             template=ConfirmTemplate(
-                text= dare + "\n"+ "\n"+ "Apakah bisa melakukannya?",
-                actions=[
-                    MessageTemplateAction(
-                        label='Bisa',
-                        text='bisa'
-                    ),
-                    MessageTemplateAction(
-                        label='Gabisa',
-                        text='gabisa'
-                    )
-                ]
+                text= dare + "\n"+ "\n"+ "Apakah bisa melakukannya?"
             )
         )   
         line_bot_api.reply_message(event.reply_token, message)
-        return 0
     
     elif msg_from_user == 'bisa':
         message = TemplateSendMessage(
@@ -185,8 +155,6 @@ def handle_message(event):
             )
         )   
         line_bot_api.reply_message(event.reply_token, message)
-        return 0
-
 
     elif msg_from_user == 'gabisa':
         image_message = ImageSendMessage(
@@ -194,22 +162,19 @@ def handle_message(event):
             preview_image_url='https://i.pinimg.com/564x/40/1e/cf/401ecf89c1d2cbac56d26cc95c3f9fb2.jpg'
             )
         line_bot_api.reply_message(event.reply_token, image_message) 
-        return 0
-
+        
     elif msg_from_user == 'aturan':
         image_message = ImageSendMessage(
             original_content_url='https://i.pinimg.com/564x/53/25/ea/5325eab320dc87fcc72754708983abd4.jpg',
             preview_image_url='https://i.pinimg.com/564x/53/25/ea/5325eab320dc87fcc72754708983abd4.jpg'
         )
         line_bot_api.reply_message(event.reply_token, image_message)
-        return 0
     
     elif msg_from_user == 'berhenti':
         sticker_message = StickerSendMessage(
             package_id='11537',
             sticker_id=stiker)
         line_bot_api.reply_message(event.reply_token, sticker_message)
-        return 0
 
 
 import os
