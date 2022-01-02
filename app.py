@@ -125,6 +125,7 @@ def handle_message(event):
             )
         )   
         line_bot_api.reply_message(event.reply_token, message)
+        return 0
 
     elif msg_from_user == 't':
         message = TemplateSendMessage(
@@ -144,6 +145,7 @@ def handle_message(event):
             )
         )   
         line_bot_api.reply_message(event.reply_token, message)
+        return 0
 
     elif msg_from_user == 'd':
         message = TemplateSendMessage(
@@ -163,6 +165,7 @@ def handle_message(event):
             )
         )   
         line_bot_api.reply_message(event.reply_token, message)
+        return 0
     
     elif msg_from_user == 'bisa':
         message = TemplateSendMessage(
@@ -182,6 +185,7 @@ def handle_message(event):
             )
         )   
         line_bot_api.reply_message(event.reply_token, message)
+        return 0
 
 
     elif msg_from_user == 'gabisa':
@@ -190,7 +194,7 @@ def handle_message(event):
             preview_image_url='https://i.pinimg.com/564x/40/1e/cf/401ecf89c1d2cbac56d26cc95c3f9fb2.jpg'
             )
         line_bot_api.reply_message(event.reply_token, image_message) 
-
+        return 0
 
     elif msg_from_user == 'aturan':
         image_message = ImageSendMessage(
@@ -198,12 +202,14 @@ def handle_message(event):
             preview_image_url='https://i.pinimg.com/564x/53/25/ea/5325eab320dc87fcc72754708983abd4.jpg'
         )
         line_bot_api.reply_message(event.reply_token, image_message)
+        return 0
     
     elif msg_from_user == 'berhenti':
         sticker_message = StickerSendMessage(
             package_id='11537',
             sticker_id=stiker)
         line_bot_api.reply_message(event.reply_token, sticker_message)
+        return 0
 
 
 import os
