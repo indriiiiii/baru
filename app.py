@@ -12,8 +12,8 @@ from linebot.models import (
     TextSendMessage, ImageSendMessage, StickerSendMessage,
 )
 app = Flask(__name__)
-ACCESS_TOKEN = 'KlTXiq+PhZwdtrmanTbE7SXwtmmY1EfM+aJzuORy7gcqwPfZyLl4jPiVg/dwlY56YuLfQL4BZZgR8lzdFB0I+Ttbm8ZUWaZP9B9TJSnYgRxgXkYKRnKfzDJBhhQ//rrMYu1y9AUx5rDjR4SXUVrvrQdB04t89/1O/w1cDnyilFU='
-SECRET = 'bb513754344a36ad5cd59a9ccb1c104b'
+ACCESS_TOKEN = '01L7Hdpb8jRSPSIxa6HCMl2jROgBghYejFeBOsuERxFT0TdTrIGs6bQyhFsUzgwFZ2AN/RDsjphX6+zNbWGeevSsckZKaqb2vccGf985lp93AjM/nKnS9D0wHVp+ObcAXXAptxv5WNqGUxKT+WfacgdB04t89/1O/w1cDnyilFU='
+SECRET = '34aec7afc4e650d78fc16f4d908aedd0'
 line_bot_api = LineBotApi(ACCESS_TOKEN)
 handler = WebhookHandler(SECRET)
 @app.route("/callback", methods=['POST'])
