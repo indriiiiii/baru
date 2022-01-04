@@ -98,84 +98,47 @@ s = [52002734,
         52002745]
 stiker = random.choice(s)
 
+emoji = [
+    {
+        "index": 0,
+        "productId": "5ac1bfd5040ab15980c9b435",
+        "emojiId": "001"
+    },
+    {
+        "index": 13,
+        "productId": "5ac1bfd5040ab15980c9b435",
+        "emojiId": "002"
+    }
+]
+
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     msg_from_user = event.message.text
-    if msg_from_user == 'mulai':
-        message = TemplateSendMessage(
-            alt_text='Confirm template',
-            template=ConfirmTemplate(
-                text='Mau pilih apa?',
-                actions=[
-                    MessageTemplateAction(
-                        label='Truth',
-                        text='t'
-                    ),
-                    MessageTemplateAction(
-                        label='Dare',
-                        text='d'
-                    )
-                ]
-            )
-        )   
-        line_bot_api.reply_message(event.reply_token, message)
-        
-    if msg_from_user == 't':
-        message = TemplateSendMessage(
-            alt_text='Confirm template',
-            template=ConfirmTemplate(
-                text= tth + "\n" + "\n"+ "Apakah bisa menjawabnya?"
-            )
-        )   
+    if msg_from_user == 'truth':
+        message = TextSendMessage(tth + "\n" + "\n" + "Apakah bisa menjawabnya? Ketik 'bisa' jika memang bisa dan ketik 'gabisa' jika tidak mampu melakukannya")
         line_bot_api.reply_message(event.reply_token, message)
 
-    if msg_from_user == 'd':
-        message = TemplateSendMessage(
-            alt_text='Confirm template',
-            template=ConfirmTemplate(
-                text= dare + "\n"+ "\n"+ "Apakah bisa melakukannya?"
-            )
-        )   
-        line_bot_api.reply_message(event.reply_token, message)
-    
-    if msg_from_user == 'bisa':
-        message = TemplateSendMessage(
-            alt_text='Confirm template',
-            template=ConfirmTemplate(
-                text= "coba ceritakan jawabanmu jika kamu memilih truth atau lakukan tantangan yang diberikan jika kamu memilih dare" + "\n"+ "\n"+ "Apakah ingin lanjut?",
-                actions=[
-                    MessageTemplateAction(
-                        label='Lanjut',
-                        text='mulai'
-                    ),
-                    MessageTemplateAction(
-                        label='Berhenti',
-                        text='berhenti'
-                    )
-                ]
-            )
-        )   
+    if msg_from_user == 'dare':
+        message = TextSendMessage(dare + "\n" + "\n" + "Apakah bisa melakukan tantangan ini? Ketik 'bisa' jika memang bisa dan ketik 'gabisa' jika tidak mampu melakukannya")
         line_bot_api.reply_message(event.reply_token, message)
 
     if msg_from_user == 'gabisa':
-        image_message = ImageSendMessage(
+        line_bot_api.reply_message(
+        event.reply_token,
+        ImageSendMessage(
             original_content_url=gambar,
-            preview_image_url='https://i.pinimg.com/564x/40/1e/cf/401ecf89c1d2cbac56d26cc95c3f9fb2.jpg'
-            )
-        line_bot_api.reply_message(event.reply_token, image_message) 
-        
-    if msg_from_user == 'aturan':
-        image_message = ImageSendMessage(
-            original_content_url='https://i.pinimg.com/564x/53/25/ea/5325eab320dc87fcc72754708983abd4.jpg',
-            preview_image_url='https://i.pinimg.com/564x/53/25/ea/5325eab320dc87fcc72754708983abd4.jpg'
-        )
-        line_bot_api.reply_message(event.reply_token, image_message)
-    
+            preview_image_url='https://i.pinimg.com/564x/40/1e/cf/401ecf89c1d2cbac56d26cc95c3f9fb2.jpg'))
+           
     if msg_from_user == 'berhenti':
-        sticker_message = StickerSendMessage(
-            package_id='11537',
-            sticker_id=stiker)
-        line_bot_api.reply_message(event.reply_token, sticker_message)
+        message = TextSendMessage(text='$ Terimakasih$', emojis=emoji)
+        line_bot_api.reply_message(event.reply_token, message)
+    
+    if msg_from_user == 'aturan':
+        line_bot_api.reply_message(
+        event.reply_token,
+        ImageSendMessage(
+            original_content_url='https://i.pinimg.com/564x/53/25/ea/5325eab320dc87fcc72754708983abd4.jpg',
+            preview_image_url='https://i.pinimg.com/564x/53/25/ea/5325eab320dc87fcc72754708983abd4.jpg'))
 
 
 import os
