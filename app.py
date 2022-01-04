@@ -16,6 +16,7 @@ ACCESS_TOKEN = '4K6XfwLNonuOPGap35wQ6K2ZCtQIWRpbOSxSoGk6UxXjjK6FgWQvXYkvEUM+6mKO
 SECRET = 'f16e76754a971c5d3f4601171a1db943'
 line_bot_api = LineBotApi(ACCESS_TOKEN)
 handler = WebhookHandler(SECRET)
+
 @app.route("/callback", methods=['POST'])
 def callback():
     signature = request.headers['X-Line-Signature']
